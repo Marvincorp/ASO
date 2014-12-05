@@ -15,7 +15,6 @@ public class Human {
 	boolean aseksual;
 	int group;
 	int PTR;	// in integers, e.g. 13% is value 13.
-	int NUMBER_OF_PARAMETERS = 8;
 	Random ran;
 	boolean[] helped;
 	
@@ -30,7 +29,7 @@ public class Human {
 		Human partner = neighbors[idx];
 		
 		if (p < PTR){ //reproduce or not, select partner randomly
-			if (partner == null){// TODO: taking care of out oof bounds neighbours
+			if (partner == null){// TODO: taking care of out of bounds neighbours
 				return null;
 			}
 		}
@@ -64,6 +63,19 @@ public class Human {
 		// talk with neighbors, update temp PTR based accordingly
 		int tempPTR = this.PTR;
 		
+		for (int i=0; i<neighbors.length; i++){
+			//TODO: implements strategies
+			if (this.group != neighbors[i].getGroup()){// humans of dissimilar groups do not cooporate
+
+				tempPTR -= 1;
+				
+			}else{
+				tempPTR += 3;
+			}
+		}
+		
+		// TODO: PTR should get updated at the end of each iteration
+		PTR = tempPTR;
 		// prisoners dilemma the west, north, east and south neighbors. 
 	}
 	

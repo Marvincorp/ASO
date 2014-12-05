@@ -32,7 +32,6 @@ public class World {
 						// human lives to breed another day.
 						neighbors = getNeighbors(i,j);
 						world[i][j].iterate(neighbors);
-						
 						Human child = world[i][j].breed(neighbors);
 						// TODO: what to do with the child?
 					}

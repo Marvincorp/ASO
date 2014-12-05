@@ -35,10 +35,12 @@ public class Main extends JFrame {
 	}
 	
 	public void start() throws InterruptedException
-	{
+	{	int count = 0;
 		while(true)
 		{
-			step();		
+			step();	
+			count += 1;
+			System.out.println(count);
 		}
 	}
 	
